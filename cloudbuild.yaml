@@ -1,0 +1,34 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+serviceAccount: projects/neoncrmintegration/serviceAccounts/ci-build-neoncrmintegration@neoncrmintegration.iam.gserviceaccount.com
+
+substitutions:
+  _IMAGE_TAG: "manual"
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - us-central1-docker.pkg.dev/neoncrmintegration/neoncrmintegration/neoncrmintegration-svc:${_IMAGE_TAG}
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - us-central1-docker.pkg.dev/neoncrmintegration/neoncrmintegration/neoncrmintegration-svc:${_IMAGE_TAG}
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - neoncrmintegration-svc
+      - --image=us-central1-docker.pkg.dev/neoncrmintegration/neoncrmintegration/neoncrmintegration-svc:${_IMAGE_TAG}
+      - --region=us-central1
+      - --platform=managed
+      - --service-account=cr-runtime-neoncrmintegration@neoncrmintegration.iam.gserviceaccount.com
+
+images:
+  - us-central1-docker.pkg.dev/neoncrmintegration/neoncrmintegration/neoncrmintegration-svc:${_IMAGE_TAG}
