@@ -1,0 +1,54 @@
+# .gcloudignore: Specifies files to ignore when building with Google Cloud Build.
+# This file is used in preference to .gitignore for Cloud Build.
+
+# Exclude common development and build artifacts
+.git
+.gitignore
+.dockerignore
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Exclude sensitive environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+application_default_credentials.json
+gcloud-service-account.json
+service-account.json
+credentials.json
+secrets.json
+
+# Exclude IDE/OS specific files
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# Exclude temporary build outputs
+coverage
+.nyc_output
+dist
+build
+.cache
+.tmp
+tmp
+
+# Exclude documentation and examples
+README.md
+CodeDescription.MD
+examples
+scripts
+
+# Exclude Docker related files (as they are part of the build process itself)
+Dockerfile
+dockerfile
+
+# Explicitly include package.json and package-lock.json if they were implicitly excluded
+# (they are not explicitly excluded above, but this clarifies intent)
+!package.json
+!package-lock.json
