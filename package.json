@@ -1,0 +1,21 @@
+{
+  "name": "neoncrm-event-registration-duplicate-resolution-app",
+  "version": "1.0.0",
+  "description": "Cloud Run Node.js service to detect and route duplicate NeonCRM accounts created through public event registrations.",
+  "filePurpose": "Defines the Node.js package metadata, runtime constraints, scripts, and production dependencies for the NeonCRM duplicate resolution Cloud Run app.",
+  "fileExplanation": "package.json must remain valid JSON, so explanatory content is stored as metadata fields rather than JavaScript-style comments. npm ignores these custom fields, while developers can still read the purpose directly inside the file.",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.0",
+    "@google-cloud/secret-manager": "^6.0.1",
+    "express": "^4.19.2"
+  }
+}
