@@ -45,8 +45,8 @@ examples
 scripts
 
 # Exclude Docker related files (as they are part of the build process itself)
-Dockerfile
-dockerfile
+#Dockerfile
+#dockerfile
 
 # Explicitly include package.json and package-lock.json if they were implicitly excluded
 # (they are not explicitly excluded above, but this clarifies intent)
