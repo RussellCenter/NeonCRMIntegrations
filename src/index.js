@@ -13,17 +13,17 @@
  */
 
 import express from 'express';
-import { NeonClient } from './src/clients/neonClient.js';
-import { createWebhookAuthMiddleware } from './src/middleware/webhookAuth.js';
-import { AccountLookupService } from './src/services/accountLookupService.js';
-import { MatchCriteriaService } from './src/services/matchCriteriaService.js';
-import { DuplicateReviewService } from './src/services/duplicateReviewService.js';
-import { MergeService } from './src/services/mergeService.js';
-import { AuditLogger } from './src/services/auditLogger.js';
-import { IdempotencyService } from './src/services/idempotencyService.js';
-import { normalizeWebhookBody, parseRegistration } from './src/services/registrationParser.js';
-import { logger } from './src/utils/logger.js';
-import { AppError, ValidationError } from './src/utils/errors.js';
+import { NeonClient } from './clients/neonClient.js';
+import { createWebhookAuthMiddleware } from './middleware/webhookAuth.js';
+import { AccountLookupService } from './services/accountLookupService.js';
+import { MatchCriteriaService } from './services/matchCriteriaService.js';
+import { DuplicateReviewService } from './services/duplicateReviewService.js';
+import { MergeService } from './services/mergeService.js';
+import { AuditLogger } from './services/auditLogger.js';
+import { IdempotencyService } from './services/idempotencyService.js';
+import { normalizeWebhookBody, parseRegistration } from './services/registrationParser.js';
+import { logger } from './utils/logger.js';
+import { AppError, ValidationError } from './utils/errors.js';
 
 const app = express();
 
