@@ -13,6 +13,8 @@ COPY . .
 FROM node:24-slim AS runner
 WORKDIR /app
 
+COPY src ./src
+
 ENV NODE_ENV=production
 ENV PORT=8080
 
